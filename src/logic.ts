@@ -117,7 +117,7 @@ const patchItemOfPurchaseList = (req: Request, res: Response): Response => {
         return res.status(201).json(purchaseList);
     } catch (error) {
         if (error instanceof Error) {
-            return res.status(400).json({
+            return res.status(404).json({
                 message: error.message,
             });
         }
@@ -139,7 +139,7 @@ const deleteItemOfPurchaseList = (req: Request, res: Response) => {
         );
 
         if (index! < 0) {
-            return res.status(400).json({
+            return res.status(404).json({
                 massege: "Item not found",
             });
         }
@@ -149,7 +149,7 @@ const deleteItemOfPurchaseList = (req: Request, res: Response) => {
         return res.status(204).send();
     } catch (error) {
         if (error instanceof Error) {
-            return res.status(400).json({
+            return res.status(404).json({
                 message: error.message,
             });
         }
